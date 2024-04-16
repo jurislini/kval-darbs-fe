@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration window</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <form id="Register-form">
+        <h1>Registration</h1>
+        <div class="input-box">
+          <div class="input-field">
+            <input id="fullName" type="text" placeholder="Full name" required />
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="input-field">
+            <input id="username" type="text" placeholder="Username" required />
+            <i class="bx bxs-user"></i>
+          </div>
+          <div class="input-field">
+            <input id="email" type="email" placeholder="Email" required />
+            <i class="bbx bxs-envelope"></i>
+          </div>
+          <div class="input-field">
+            <input id="password" type="password" placeholder="Password" required />
+            <i class="bx bxs-password"></i>
+          </div>
+          <div class="input-field">
+            <input id="password-confirm" type="password" placeholder="Confirm Password" required />
+            <i class="bx bxs-password"></i>
+          </div>
+        </div>
+        <label>
+          <input type="checkbox" /> Apstiprinu ka vēlos reģistrēties šajā
+          mājaslapā
+        </label>
+
+        <button type="submit" class="btn">Register</button>
+      </form>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
+
+
+<!-- <form class="register" id="registerForm" method="post" onsubmit="return validateForm(event)">
+    <div class="form-group">
+        <div class="input-text">
+            <label for="email">E-pasts</label>
+            <span class="form-error">*</span>
+        </div>
+        <input class="main-input register-text-input" type="text" id="email" name="email">
+        <span class="form-error email-error"></span>
+    </div>
+    <div class="form-group">
+        <div class="input-text">
+            <label for="firstname">Vārds</label>
+            <span class="form-error">*</span>
+        </div>
+        <input class="main-input register-text-input" type="text" id="firstname" name="firstname">
+        <span class="form-error firstname-error"></span>
+    </div>
+    <div class="form-group">
+        <div class="input-text">
+            <label class="input-text" for="lastname">Uzvārds</label>
+            <span class="form-error">*</span>
+        </div>
+        <input class="main-input register-text-input" type="text" id="lastname" name="lastname">
+        <span class="form-error lastname-error"></span>
+    </div>
+    <div class="form-group">
+        <div class="input-text">
+            <label class="input-text" for="password">Parole</label>
+            <span class="form-error">*</span>
+        </div>
+        <input class="main-input register-text-input" type="password" id="password" name="password">
+        <span class="form-error password-error"></span>
+    </div>
+    <div class="form-group">
+        <div class="input-text">
+            <label class="input-text" for="password_confirm">Atkārtot paroli</label>
+            <span class="form-error">*</span>
+        </div>
+        <input class="main-input register-text-input" type="password" id="password_confirm" name="password_confirm">
+        <span class="form-error password_confirm-error"></span>
+    </div>
+    <div class="btn-container">
+        <input class="main-button register-button" type="submit" value="Reģistrēties">
+    </div>
+    <div class="nav-buttons">
+        <a class="hyperlink" href="/login">Jau ir konts?</a>
+        <a class="hyperlink" href="/">Aiziet uz veikalu</a>
+    </div>
+</form> -->

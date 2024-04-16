@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        body {
+            background: url("bground.png");
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="loginForm">
+            <h1 class="form__title">Login</h1>
+            <div class="form__message form__message--error" style="display: none;"></div>
+            <div class="form__input-group">
+                <input
+                    type="text"
+                    class="form__input"
+                    autofocus
+                    placeholder="Lietotājvārds vai epasts"
+                    id="login"
+                />
+            </div>
+            <div class="form__input-group">
+                <input
+                    type="password"
+                    class="form__input"
+                    placeholder="Parole"
+                    id="password"
+                />
+            </div>
+            <button class="form__button" type="submit">
+                Turpināt
+            </button>
+            <p class="form__text">
+                <a class="form__link" href="./registra_logs/index.html" id="linkCreateAccount">Nav konts?</a>
+            </p>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const loginForm = document.getElementById("loginForm");
+
+            loginForm.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const email = document.getElementById("login").value;
+                const password = document.getElementById("password").value;
+                const errorElement = document.querySelector(".form__message");
+
+                try {
+                    const response = await fetch("http://127.0.0.1:8000/api/login", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Accept': "application/json",
+                        },
+                        body: JSON.stringify({ email, password })
+                    });
+                    console.log("test");
+                    const responseData = await response.json();
+
+                    if (response.ok) {
+                        // Successful login
+                        localStorage.setItem("token", responseData.token);
+                        window.location.assign("mainpage.html");
+                    } else {
+                        // Display error message
+                        errorElement.textContent = responseData.message || "Authentication failed";
+                        errorElement.style.display = "block";
+                    }
+                } catch (error) {
+                    console.error("An error occurred during the request:", error);
+                    errorElement.textContent = "An unexpected error occurred";
+                    errorElement.style.display = "block";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

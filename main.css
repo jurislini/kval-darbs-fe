@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  background: url(./subfolders/dog_stare_soul.png);
+  background: #556b2f;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -82,7 +82,7 @@ body {
 }
 
 .form__input:focus {
-  border-color: var(--color-primary);
+  border-color: #dcdcdc;
   background: #ffffff;
 }
 
@@ -107,11 +107,11 @@ body {
   border-radius: var(--border-radius);
   outline: none;
   cursor: pointer;
-  background: var(--color-primary);
+  background: #808080;
 }
 
 .form__button:hover {
-  background: var(--color-primary-dark);
+  background: gainsboro;
 }
 
 .form__button:active {

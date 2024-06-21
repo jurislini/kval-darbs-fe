@@ -27,13 +27,13 @@ form.addEventListener('submit',async function(e){
   const data = await response.json();
   console.log(data);
 
-  // Handle token storage and redirection upon successful registration
+  // Handlo token storage and redireto kad notiek succsessful reģistrācija
   if (response.ok) {
     localStorage.setItem('token', data.token);
-    // Redirect or perform other actions upon successful registration
+    // Redirect or perform other actions kad notiek succsessful reģistrācija
     window.location.href = '/mainpage.html';
   } else {
-    // Handle registration failure
+    // reģistrācijas error handling
     alert(data.error || 'Epasts jau tiek izmantots');
   }})
 

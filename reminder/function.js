@@ -1,4 +1,4 @@
-//reminder js
+//remider setup
 document.getElementById('reminderForm').addEventListener('submit', function(event) {
     event.preventDefault();
   
@@ -11,7 +11,7 @@ document.getElementById('reminderForm').addEventListener('submit', function(even
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + localStorage.getItem('token') // Ensure you have the user's token stored in localStorage
+            'Authorization': 'Bearer ' + localStorage.getItem('token') // Ensuro ka user token ir localstorage
         },
         body: JSON.stringify({ email, reminder_date, message }),
     })

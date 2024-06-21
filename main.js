@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const responseData = await response.json();
 
       if (responseData.token) {
-        // Login successful, store token in local storage
+        // Login successful, stores user token in localstorage
         localStorage.setItem("token", responseData.token);
-        // Redirect user to mainpage.html or perform other actions
+        // Redirects users to mainpage.html
         window.location.href = "mainpage.html";
       } else {
-        // Login failed, display error message
+        // Login failed, diplays errors
         setFormMessage(loginForm, "error", "Invalid username or password");
       }
     } catch (error) {

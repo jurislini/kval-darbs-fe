@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const reminderForm = document.getElementById('reminderForm');
   let map, marker;
 
-  // Function to load tasks from localStorage
+  // Function lai loadotu tasks no localstorage
   const loadTasksFromLocalStorage = () => {
       const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
       tasks.forEach((task) => {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   };
 
-  // Function to save tasks to localStorage
+  // Function lai saglabatu tasks localstorage
   const saveTasksToLocalStorage = () => {
       const tasks = Array.from(list_el.children).map((taskEl) => {
           return {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem("tasks", JSON.stringify(tasks));
   };
 
-  // Function to create a task element
+  // Function lai izveidotu task elementus
   const createTaskElement = (taskContent) => {
       const task_el = document.createElement("div");
       task_el.classList.add("task");
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       task_actions_el.appendChild(task_delete_el);
       task_el.appendChild(task_actions_el);
 
-      // Event listener for edit button
+      // Event listener priekš edit pogas
       task_edit_el.addEventListener("click", () => {
           if (task_edit_el.innerText.toLowerCase() === "edit") {
               task_edit_el.innerText = "Save";
@@ -68,29 +68,29 @@ document.addEventListener('DOMContentLoaded', () => {
           } else {
               task_edit_el.innerText = "Edit";
               task_input_el.setAttribute("readonly", "readonly");
-              saveTasksToLocalStorage(); // Save tasks to localStorage after editing
+              saveTasksToLocalStorage(); // Saglaba tasks localstorage pec editing
           }
       });
 
-      // Event listener for delete button
+      // Event listener prieks delete button
       task_delete_el.addEventListener("click", () => {
           list_el.removeChild(task_el);
-          saveTasksToLocalStorage(); // Save tasks to localStorage after deletion
+          saveTasksToLocalStorage(); // Saglaba tasks pec deletion localstorage
       });
 
       return task_el;
   };
 
-  // Load tasks from localStorage on page load
+  // Load tasks no localstorage pec page load
   loadTasksFromLocalStorage();
 
-  // Event listener for form submission (adding new task)
+  // Event listener (adding new task)
   form.addEventListener("submit", (e) => {
       e.preventDefault();
-      popup.style.display = 'block'; // Show the popup window
+      popup.style.display = 'block'; // Popup logs
   });
 
-  // Event listener for closing the popup
+  // Event listener prieks popuploga aizversanas
   closePopup.addEventListener('click', () => {
       popup.style.display = 'none';
   });
@@ -109,12 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const latitude = document.getElementById('latitude').value;
       const longitude = document.getElementById('longitude').value;
 
-      // Here you can handle the form submission, e.g., save the reminder to the server
+      // Šeit varat apstrādāt veidlapas iesniegšanu, piemēram, saglabāt atgādinājumu serverī
       const taskContent = `Title: ${title}, Description: ${description}, Date: ${date}, Location: (${latitude}, ${longitude})`;
       const task_el = createTaskElement(taskContent);
       list_el.appendChild(task_el);
 
-      saveTasksToLocalStorage(); // Save tasks to localStorage after adding a new task
+      saveTasksToLocalStorage(); // Saglabājiet tasks localstorage pēc jauna uzdevuma pievienošanas
       popup.style.display = 'none';
   });
 
@@ -139,17 +139,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function logout() {
-    
-    fetch('/logout', {
+    fetch('/index.html', {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token'), //Local storage token idk vai izmantoju
+            'Authorization': 'Bearer ' + localStorage.getItem('token'), // Localstorage token (if you have one)
             'Content-Type': 'application/json'
         }
     })
     .then(response => {
         if (response.ok) {
-            // Logout successful, redirect the user to the login page 
+            // Logout successful, clear token and redirect the user to the login page
+            localStorage.removeItem('token');
             window.location.href = '/index.html'; // Redirect to login page
         } else {
             // Handle logout error
@@ -160,3 +160,9 @@ function logout() {
         console.error('Error during logout:', error);
     });
 }
+
+// Attach the logout function to the logout button
+const logoutButton = document.querySelector('.logout-button');
+if (logoutButton) {
+    logoutButton.addEventListener('click', logout);
+};

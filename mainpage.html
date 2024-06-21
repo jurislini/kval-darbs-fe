@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test</title>
+    <title>List</title>
     <link rel="stylesheet" href="./mainpage.css" />
     <style>
         .footer {
@@ -81,12 +81,13 @@
 <body>
     <div class="footer">
         <ul class="Flex">
-            <button class="Flex-item">Kontakti</button>
-            <li class="Flex-item">FAQ</li>
-            <li class="Flex-item">Politika</li>
-            <li class="Flex-item">Iestatījumi</li>
+           <a href="/login_kval/subfolers/Kontaki/index.html"> <button class="Flex-item">Contacts</button> </a>
+           <a href="/login_kval/subfolers/faq/index.html"> <button class="Flex-item">FAQ</button> </a>
+            <a href="/login_kval/subfolers/Policy/index.html"> <button class="Flex-item">Policy</button> </a>
+            <a href="/login_kval/subfolers/about/index.html"> <button class="Flex-item">Settings</button> </a>
         </ul>
     </div>
+
 
     <div class="header">
         <button class="logout-button" onclick="logout()">Logout</button>
@@ -104,12 +105,12 @@
 
     <main>
         <form id="new-task-form">
-            <input type="text" name="new-task-input" id="new-task-input" placeholder="Test" />
+            <input type="text" name="new-task-input" id="new-task-input" placeholder="Task" />
             <input type="submit" id="new-task-submit" value="Add task" />
         </form>
 
         <section class="task-list">
-            <h2>Test</h2>
+            <h2>Task</h2>
             <div id="tasks">
                 <!-- Task items will be added here -->
             </div>

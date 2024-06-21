@@ -139,10 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function logout() {
-    fetch('/index.html', {
+    fetch('/logout', {
         method: 'POST',
         headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('token'), // Localstorage token (if you have one)
+            'Authorization': 'Bearer ' + localStorage.getItem('token'), // If using a token
             'Content-Type': 'application/json'
         }
     })
@@ -150,7 +150,7 @@ function logout() {
         if (response.ok) {
             // Logout successful, clear token and redirect the user to the login page
             localStorage.removeItem('token');
-            window.location.href = '/index.html'; // Redirect to login page
+            window.location.href = '/main.html'; // Redirect to login page
         } else {
             // Handle logout error
             console.error('Logout failed');
@@ -165,4 +165,4 @@ function logout() {
 const logoutButton = document.querySelector('.logout-button');
 if (logoutButton) {
     logoutButton.addEventListener('click', logout);
-};
+}

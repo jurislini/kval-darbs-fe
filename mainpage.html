@@ -97,7 +97,10 @@
                     <img src="./Clawg.jpg" alt="" width="50" height="50" />
                 </li>
             </a>
+            <script>
+                
 
+            </script>
 
            
         </ul>
@@ -142,30 +145,31 @@
         </div>
     </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEv2Go1lB0RsMzGhm-gXrPU-bQYTBYPYI&callback=initMap" async defer></script>
     <script src="./mainpage.js"></script>
     <script>
-        function logout() {
-            fetch('/index.html', {
-                method: 'POST',
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token'), // Localstorage token (if i have one)
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    // Logout successful, redirect the user to the login page
-                    window.location.href = '/index.html'; // Redirect to login page
-                } else {
-                    // Handle logout error
-                    console.error('Logout failed');
-                }
-            })
-            .catch(error => {
-                console.error('Error during logout:', error);
-            });
-        }
+        
+        // function logout() {
+        //     fetch('/index.html', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Authorization': 'Bearer ' + localStorage.getItem('token'), // Localstorage token (if i have one)
+        //             'Content-Type': 'application/json'
+        //         }
+        //     })
+        //     .then(response => {
+        //         if (response.ok) {
+        //             // Logout successful, redirect the user to the login page
+        //             window.location.href = '/index.html'; // Redirect to login page
+        //         } else {
+        //             // Handle logout error
+        //             console.error('Logout failed');
+        //         }
+        //     })
+        //     .catch(error => {
+        //         console.error('Error during logout:', error);
+        //     });
+        // }
     </script>
 </body>
 </html>
